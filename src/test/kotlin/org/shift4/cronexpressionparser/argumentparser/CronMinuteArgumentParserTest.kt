@@ -6,6 +6,7 @@ import org.junit.jupiter.api.TestFactory
 import org.junit.jupiter.api.assertThrows
 import org.shift4.cronexpressionparser.CronParserIllegalArgumentException
 import org.shift4.cronexpressionparser.Minute
+import org.shift4.cronexpressionparser.Month
 
 class CronMinuteArgumentParserTest {
 
@@ -15,6 +16,12 @@ class CronMinuteArgumentParserTest {
     fun `parse returns appropriate set`() = listOf(
         dynamicTest("given 0 method parse returns set with 0") {
             parseTest("0", listOf(0).map { Minute.of(it) }.toSet())
+        },
+        dynamicTest("given 1,1 method parse returns set with 1") {
+            parseTest("1,1", listOf(1).map { Minute.of(it) }.toSet())
+        },
+        dynamicTest("given 1,2 method parse returns set with 1,2") {
+            parseTest("1,2", listOf(1,2).map { Minute.of(it) }.toSet())
         },
         dynamicTest("given 59 method parse returns set with 59") {
             parseTest("59", listOf(59).map { Minute.of(it) }.toSet())

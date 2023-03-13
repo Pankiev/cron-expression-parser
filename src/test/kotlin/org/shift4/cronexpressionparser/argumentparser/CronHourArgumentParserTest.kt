@@ -17,6 +17,12 @@ class CronHourArgumentParserTest {
         dynamicTest("given 0 method parse returns set with 0") {
             parseTest("0", listOf(0).map { Hour.of(it) }.toSet())
         },
+        dynamicTest("given 1,1 method parse returns set with 1") {
+            parseTest("1,1", listOf(1).map { Hour.of(it) }.toSet())
+        },
+        dynamicTest("given 1,2 method parse returns set with 1,2") {
+            parseTest("1,2", listOf(1,2).map { Hour.of(it) }.toSet())
+        },
         dynamicTest("given 23 method parse returns set with 23") {
             parseTest("23", listOf(23).map { Hour.of(it) }.toSet())
         },
