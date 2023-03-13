@@ -20,3 +20,4 @@ The script will install also jdk-19 along with other required dependencies
   the solution with additional features while onsite` and I want to go through as clean as possible. That being said, I tried not to overcomplicate when the gain was not significant
 - Dockerfile has been added for testing purposes to ensure running instructions are correct and users will be able to run project in clean Linux environment (accordingly to the requirements)
 - Most non-standard characters in cron expressions (L, W, #, ?) are not handled. They are used only in some implementations
+- At this point I would mark the code as ready for review (but not for production use yet)
