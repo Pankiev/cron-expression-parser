@@ -37,7 +37,34 @@ class CronDayOfWeekArgumentParserTest {
             parseTest("*/2", listOf(0, 2, 4, 6).map { DayOfWeek.of(it) }.toSet())
         },
         dynamicTest("given 1-6/5 method parse returns set with 1,5") {
-            parseTest("1-6/5", listOf(1, 6,).map { DayOfWeek.of(it) }.toSet())
+            parseTest("1-6/5", listOf(1, 6).map { DayOfWeek.of(it) }.toSet())
+        },
+        dynamicTest("given Mon method parse returns set with 0") {
+            parseTest("Mon", listOf(0).map { DayOfWeek.of(it) }.toSet())
+        },
+        dynamicTest("given TuE method parse returns set with 1") {
+            parseTest("TuE", listOf(1).map { DayOfWeek.of(it) }.toSet())
+        },
+        dynamicTest("given WeD method parse returns set with 2") {
+            parseTest("WeD", listOf(2).map { DayOfWeek.of(it) }.toSet())
+        },
+        dynamicTest("given Thu method parse returns set with 3") {
+            parseTest("Thu", listOf(3).map { DayOfWeek.of(it) }.toSet())
+        },
+        dynamicTest("given FrI method parse returns set with 4") {
+            parseTest("FrI", listOf(4).map { DayOfWeek.of(it) }.toSet())
+        },
+        dynamicTest("given SaT method parse returns set with 5") {
+            parseTest("SaT", listOf(5).map { DayOfWeek.of(it) }.toSet())
+        },
+        dynamicTest("given SuN method parse returns set with 6") {
+            parseTest("SuN", listOf(6).map { DayOfWeek.of(it) }.toSet())
+        },
+        dynamicTest("given MON-SUN method parse returns full set") {
+            parseTest("MON-SUN", (0..6).map { DayOfWeek.of(it) }.toSet())
+        },
+        dynamicTest("given TUE,WED,THU method parse returns set with 1,2,3") {
+            parseTest("TUE,WED,THU", listOf(1,2,3).map { DayOfWeek.of(it) }.toSet())
         },
     )
 

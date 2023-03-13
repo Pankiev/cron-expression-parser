@@ -16,7 +16,7 @@ internal class CronMonthArgumentParser : CronTemporalArgumentParser<Month> {
 
     private fun replaceWordValuesToNumericalValues(cronArgument: String): String {
         val replacements = java.time.Month.values()
-            .map { it.name.substring(0, 3) to (it.value).toString() }
+            .map { it.name.substring(0, 3) to (it.ordinal + 1).toString() }
         return cronArgument.replaceIgnoreCase(replacements)
     }
 
